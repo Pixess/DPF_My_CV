@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KCj-IT-N0f">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--PDF-->
+        <scene sceneID="vEi-56-AxP">
+            <objects>
+                <tableViewController id="9Kf-su-dtc" customClass="ViewController" customModule="PDF_My_CV" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7Tb-mZ-OK6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="vE8-NM-a9J">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vE8-NM-a9J" id="unf-3o-JAC">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9Kf-su-dtc" id="Z1Z-Ny-8Ue"/>
+                            <outlet property="delegate" destination="9Kf-su-dtc" id="bWO-qs-4m1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="PDF" id="dIg-Q2-2Ju"/>
+                    <connections>
+                        <segue destination="N6i-PJ-lfF" kind="show" identifier="ShowPDF" id="3dz-Is-j3U"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mxy-u4-mGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="265" y="185"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZAW-BR-kMx">
+            <objects>
+                <viewController id="N6i-PJ-lfF" customClass="PDFViewController" customModule="PDF_My_CV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Wr-01-ZL0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g34-Jq-0dY">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3np-EP-FLS">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3np-EP-FLS" firstAttribute="centerY" secondItem="5Wr-01-ZL0" secondAttribute="centerY" id="6zr-Tz-2KQ"/>
+                            <constraint firstItem="g34-Jq-0dY" firstAttribute="trailing" secondItem="o0I-x8-xGA" secondAttribute="trailing" id="C9i-GJ-adK"/>
+                            <constraint firstItem="3np-EP-FLS" firstAttribute="centerX" secondItem="5Wr-01-ZL0" secondAttribute="centerX" id="YNW-bR-jnl"/>
+                            <constraint firstAttribute="bottom" secondItem="g34-Jq-0dY" secondAttribute="bottom" id="Zxn-4A-3qQ"/>
+                            <constraint firstItem="g34-Jq-0dY" firstAttribute="top" secondItem="o0I-x8-xGA" secondAttribute="top" id="pYt-vB-4qn"/>
+                            <constraint firstItem="g34-Jq-0dY" firstAttribute="leading" secondItem="o0I-x8-xGA" secondAttribute="leading" id="ppI-BC-zqa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="o0I-x8-xGA"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="3np-EP-FLS" id="Vs6-wY-GIY"/>
+                        <outlet property="webView" destination="g34-Jq-0dY" id="D4w-8t-dHp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5rI-8T-AyW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997.5" y="184.85915492957747"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yh0-ug-Qjx">
+            <objects>
+                <navigationController id="KCj-IT-N0f" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zi1-m9-BCe">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9Kf-su-dtc" kind="relationship" relationship="rootViewController" id="IDc-Jk-Xl6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nWU-Yy-SPS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-688" y="185"/>
+        </scene>
+    </scenes>
+</document>
